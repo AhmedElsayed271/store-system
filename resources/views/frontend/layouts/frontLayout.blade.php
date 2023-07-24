@@ -209,53 +209,6 @@
 
     <!-- ========== header end============= -->
 
-    <!-- ========== banner-area============= -->
-
-    <div class="hero-area hero-style-one">
-        <div class="hero-main-wrapper position-relative">
-            <div class="swiper banner1">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="slider-bg-1">
-                            <div class="container">
-                                <div class="row d-flex justify-content-center align-items-center">
-                                    <div class="banner1-content">
-                                        <span>Welcome To Auction House</span>
-                                        <h1>Build, sell & collect digital items.</h1>
-                                        <p>Nulla facilisi. Maecenas ac tellus ut ligula interdum convallis. Nullam
-                                            dapibus on erat in dolor posuere, none hendrerit lectus ornare.
-                                            Suspendisse sit amet turpina sagittis, ultrices dui et, aliquam none hendrerit lectus.
-                                        </p>
-                                        <a href="live-auction.html" class="eg-btn btn--primary btn--lg">Start Exploring</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slider-bg-2">
-                            <div class="container">
-                                <div class="row d-flex justify-content-center align-items-center">
-                                    <div class="banner1-content">
-                                        <span>Welcome To Auction House</span>
-                                        <h2>Purchase Dream Product & Try.</h2>
-                                        <p>Nulla facilisi. Maecenas ac tellus ut ligula interdum convallis. Nullam
-                                            dapibus on erat in dolor posuere, none hendrerit lectus ornare.
-                                            Suspendisse sit amet turpina sagittis, ultrices dui et, aliquam none hendrerit lectus.
-                                        </p>
-                                        <a href="live-auction.html" class="eg-btn btn--primary btn--lg">Start Exploring</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-one-pagination d-flex justify-content-center flex-column align-items-center gap-3"></div>
-        </div>
-    </div>
-    <!-- ===============  Hero area end=============== -->
-
     @yield('content')
 
     <!-- =============== counter-section start =============== -->

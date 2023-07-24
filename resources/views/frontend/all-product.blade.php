@@ -18,8 +18,8 @@
         <!-- ========== inner-page-banner end ============= -->
     
         <div class="live-auction-section pt-120 pb-120">
-            <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-top" >
-            <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-bottom" >
+            <img alt="image" src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg-top" >
+            <img alt="image" src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg-bottom" >
             <div class="container">
                 <div class="row gy-4 mb-60 d-flex justify-content-center">
                     @foreach ($products as $product)
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="author-area">
                                     <div class="author-emo">
-                                        <img alt="image" src="assets/images/icons/smile-emo.svg" >
+                                        <img alt="image" src="{{ asset('assets/frontend/images/icons/smile-emo.svg') }}" >
                                     </div>
                                     <div class="author-name">
                                         <span>by @robatfox</span>
@@ -65,23 +65,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="row">
-                    <nav class="pagination-wrap">
-                        <ul class="pagination d-flex justify-content-center gap-md-3 gap-2">
-                          <li class="page-item">
-                            <a class="page-link" href="#" tabindex="-1" >Prev</a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">01</a></li>
-                          <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">02</a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">03</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                          </li>
-                        </ul>
-                      </nav>
-                </div>
+
                 <div class= "row">
                     <div class="pagination d-flex justify-content-center">
                         {{ $products->links() }}
