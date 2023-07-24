@@ -73,21 +73,19 @@
                                                 <td>{{ $category->status }}</td>
                                                 <td>{{ $category->created_at }}</td>
                                                 <td>
-                                                    @can('categories.view')
-                                                        <a href="{{ route('categories.edit', $category->id) }}"
-                                                            class="btn btn-success">Edit</a>
-                                                    @endcan
+
+                                                    <a href="{{ route('categories.edit', $category->id) }}"
+                                                        class="btn btn-success">Edit</a>
+
                                                 </td>
-                                                @if (Auth::user()->can('categories.view'))
-                                                    <td>
-                                                        <form method="post"
-                                                            action="{{ route('categories.destroy', $category->id) }}">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form>
-                                                    </td>
-                                                @endif
+                                                <td>
+                                                    <form method="post"
+                                                        action="{{ route('categories.destroy', $category->id) }}">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                         @empty
                                             <tr>

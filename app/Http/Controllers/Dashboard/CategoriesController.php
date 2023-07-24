@@ -55,7 +55,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return "test";
+        // return "test";
         $categories = Category::all();
         $category = new Category();
 
@@ -67,7 +67,6 @@ class CategoriesController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        return "test";
         $request->request->remove('_token');
 
         $data = $request->toArray();

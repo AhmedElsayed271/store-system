@@ -2,6 +2,7 @@
 
 use App\Models\Cart;
 use App\Models\User;
+use App\Models\Product;
 use App\Models\Category;
 use App\Events\pusherTest;
 use App\Jobs\AddProductJob;
@@ -37,6 +38,7 @@ Route::get('/test', function () {
 });
 
 Route::get('/product-details/{product:slug}', [ProductController::class, 'show'])->name('product-details');
+Route::get('/all-product', [ProductController::class, 'allProduct'])->name('allProduct');
 
 Route::resource('/cart', CardController::class);
 
@@ -47,6 +49,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/notify', function () {
+
+    return Product::all();
+    return view('frontend.layouts.frontLayout');
 
     // $user = Auth::user();
     // $users = User::get();

@@ -14,4 +14,10 @@ class ProductController extends Controller
 
         return view('frontend.product-detalis', compact("product"));
     }
+    public function allProduct() 
+    {
+        $products = Product::paginate();
+
+        return view('frontend.all-product', compact("products"));
+    }
 }
