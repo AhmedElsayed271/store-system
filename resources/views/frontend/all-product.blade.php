@@ -26,7 +26,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-10 ">
                         <div data-wow-duration="1.5s" data-wow-delay="0.2s" class="eg-card auction-card1 wow fadeInDown">
                             <div class="auction-img">
-                                <img alt="image" src="{{ $product->photo }}" >
+                                <img alt="image" src="{{ $product->imageUrl() }}" >
                                 <div class="auction-timer">
                                     <div class="countdown" id="timer1">
                                         <h4><span id="hours1">05</span>H : <span id="minutes1">52</span>M : <span
