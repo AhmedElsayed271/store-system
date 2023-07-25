@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Notifications\CategoryCrated;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Notification;
 use App\Http\Controllers\Front\CardController;
@@ -31,7 +32,9 @@ use App\Http\Controllers\Front\ProductController;
 //     Route::get('/my-account', [HomeController::class, 'myAccount'])->name('myAccount');
 // });
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about-us', [PageController::class, 'aboutUs'])->name('about.us');
+Route::get('/contact-us', [PageController::class, 'contactUs'])->name('contact.us');
 
 
 Route::get('/mab', [MapController::class, 'show']);

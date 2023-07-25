@@ -119,7 +119,7 @@
 
     <header class="header-area style-1">
         <div class="header-logo">
-            <a href="index.html"><img alt="image" src="{{ asset('assets/frontend/images/bg/header-logo.png') }}" ></a>
+            <a href="{{route('home')}}"><img alt="image" src="{{ asset('assets/frontend/images/bg/header-logo.png') }}" ></a>
         </div>
         <div class="main-menu">
             <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
@@ -132,16 +132,8 @@
                 </div>
             </div>
             <ul class="menu-list">
-                <li class="menu-item-has-children">
-                    <a href="#" class="drop-down">Home</a><i class='bx bx-plus dropdown-icon'></i>
-                    <ul class="submenu">
-                        <li><a href="index.html">Home 1</a></li>
-                        <li><a href="index2.html">Home 2</a></li>
-                        <li><a href="index3.html">Home 3</a></li>
-                    </ul>
-                </li>
                 <li>
-                    <a href="about.html">About Us</a>
+                    <a href="{{ route('about.us') }}">About Us</a>
                 </li>
                 <li>
                     <a href="how-works.html">How It Works</a>
@@ -167,7 +159,7 @@
                         <li><a href="404.html">404</a></li>
                     </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="{{ route('contact.us') }}">Contact</a></li>
             </ul>
             <!-- mobile-search-area -->
             <div class="d-lg-none d-block">
@@ -350,7 +342,7 @@
             <div class="container">
                 <div class="row d-flex align-items-center g-4">
                     <div class="col-lg-6 d-flex justify-content-lg-start justify-content-center">
-                        <p>Copyright 2022 <a href="#">Bid Out</a> | Design By <a
+                        <p>Copyright 2022 <a href="{{ route('home') }}">Bid Out</a> | Design By <a
                                 href="https://www.egenslab.com/"
                                 class="egns-lab">Egens Lab</a></p>
                     </div>
