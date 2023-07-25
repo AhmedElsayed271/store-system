@@ -51,6 +51,7 @@
 
     <div class="category-section pt-120 pb-120">
         <div class="container position-relative">
+
             <div class="row d-flex justify-content-center">
                 <div class="swiper category1-slider">
                     <div class="swiper-wrapper">
@@ -406,10 +407,10 @@
     <!-- =============== live-action-section start=============== -->
 
     <div class="live-auction pb-120">
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg">
         <div class="container position-relative">
-            <img alt="image" src="assets/images/bg/dotted1.png" class="dotted1">
-            <img alt="image" src="assets/images/bg/dotted1.png" class="dotted2">
+            <img alt="image" src="{{ asset('assets/frontend/images/bg/dotted1.png') }}" class="dotted1">
+            <img alt="image" src="{{ asset('assets/frontend/images/bg/dotted1.png') }}" class="dotted2">
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
                     <div class="section-title1">
@@ -421,11 +422,12 @@
                 </div>
             </div>
             <div class="row gy-4 mb-60 d-flex justify-content-center">
+                @foreach ($products as $product)
                 <div class="col-lg-4 col-md-6 col-sm-10 ">
                     <div data-wow-duration="1.5s" data-wow-delay="0.2s"
                         class="eg-card auction-card1 wow animate fadeInDown">
                         <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc1.png">
+                            <img alt="image" src="{{ $product->imageUrl() }}">
                             <div class="auction-timer">
                                 <div class="countdown" id="timer1">
                                     <h4><span id="hours1">05</span>H : <span id="minutes1">52</span>M : <span
@@ -434,7 +436,7 @@
                             </div>
                             <div class="author-area">
                                 <div class="author-emo">
-                                    <img alt="image" src="assets/images/icons/smile-emo.svg">
+                                    <img alt="image" src="">
                                 </div>
                                 <div class="author-name">
                                     <span>by @robatfox</span>
@@ -442,216 +444,14 @@
                             </div>
                         </div>
                         <div class="auction-content">
-                            <h4><a href="auction-details.html">Brand New royal Enfield 250 CC For Sale</a></h4>
-                            <p>Bidding Price : <span><span>$85.9</span></span></p>
+                            <h4><a href="auction-details.html">{{ $product->name }}</a></h4>
+                            <p>Bidding Price : <span><span>{{ $product->price }}</span></span></p>
                             <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Place a Bid</a>
-                                <div class="share-area">
-                                    <ul class="social-icons d-flex">
-                                        <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
-                                        <li><a href="https://www.twitter.com/"><i class="bx bxl-twitter"></i></a></li>
-                                        <li><a href="https://www.pinterest.com/"><i class="bx bxl-pinterest"></i></a></li>
-                                        <li><a href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a></li>
-                                    </ul>
-                                    <div>
-                                        <div class="share-btn"><i class='bx bxs-share-alt'></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-10">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.4s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc2.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer2">
-                                    <h4><span id="hours2">05</span>H : <span id="minutes2">52</span>M : <span
-                                            id="seconds2">32</span>S</h4>
-                                </div>
-                            </div>
-                            <div class="author-area">
-                                <div class="author-emo">
-                                    <img alt="image" src="assets/images/icons/smile-emo.svg">
-                                </div>
-                                <div class="author-name">
-                                    <span>by @robatfox</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Wedding Special Exclusive Cupple Ring (S2022)</a></h4>
-                            <p>Bidding Price : <span>$85.9</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Place a Bid</a>
-                                <div class="share-area">
-                                    <ul class="social-icons d-flex">
-                                        <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
-                                        <li><a href="https://www.twitter.com/"><i class="bx bxl-twitter"></i></a></li>
-                                        <li><a href="https://www.pinterest.com/"><i class="bx bxl-pinterest"></i></a></li>
-                                        <li><a href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a></li>
-                                    </ul>
-                                    <div>
-                                        <div class="share-btn"><i class='bx bxs-share-alt'></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.6s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc3.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer3">
-                                    <h4><span id="hours3">05</span>H : <span id="minutes3">52</span>M : <span
-                                            id="seconds3">32</span>S</h4>
-                                </div>
-                            </div>
-                            <div class="author-area">
-                                <div class="author-emo">
-                                    <img alt="image" src="assets/images/icons/smile-emo.svg">
-                                </div>
-                                <div class="author-name">
-                                    <span>by @robatfox</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Brand New Honda CBR 600 RR For Special Sale (2022)</a></h4>
-                            <p>Bidding Price : <span>$85.9</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Place a Bid</a>
-                                <div class="share-area">
-                                    <ul class="social-icons d-flex">
-                                        <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
-                                        <li><a href="https://www.twitter.com/"><i class="bx bxl-twitter"></i></a></li>
-                                        <li><a href="https://www.pinterest.com/"><i class="bx bxl-pinterest"></i></a></li>
-                                        <li><a href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a></li>
-                                    </ul>
-                                    <div>
-                                        <div class="share-btn"><i class='bx bxs-share-alt'></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay=".2s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc4.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer4">
-                                    <h4><span id="hours4">05</span>H : <span id="minutes4">52</span>M : <span
-                                            id="seconds4">32</span>S</h4>
-                                </div>
-                            </div>
-                            <div class="author-area">
-                                <div class="author-emo">
-                                    <img alt="image" src="assets/images/icons/smile-emo.svg">
-                                </div>
-                                <div class="author-name">
-                                    <span>by @robatfox</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Toyota AIGID A Class Hatchback Sale (2017 - 2021)</a>
-                            </h4>
-                            <p>Bidding Price : <span>$85.9</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Place a Bid</a>
-                                <div class="share-area">
-                                    <ul class="social-icons d-flex">
-                                        <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
-                                        <li><a href="https://www.twitter.com/"><i class="bx bxl-twitter"></i></a></li>
-                                        <li><a href="https://www.pinterest.com/"><i class="bx bxl-pinterest"></i></a></li>
-                                        <li><a href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a></li>
-                                    </ul>
-                                    <div>
-                                        <div class="share-btn"><i class='bx bxs-share-alt'></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay=".4s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc5.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer5">
-                                    <h4><span id="hours5">05</span>H : <span id="minutes5">52</span>M : <span
-                                            id="seconds5">32</span>S</h4>
-                                </div>
-                            </div>
-                            <div class="author-area">
-                                <div class="author-emo">
-                                    <img alt="image" src="assets/images/icons/smile-emo.svg">
-                                </div>
-                                <div class="author-name">
-                                    <span>by @robatfox</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Havit HV-G61 USB Black Double Game Pad With Vibrat</a>
-                            </h4>
-                            <p>Bidding Price : <span>$85.9</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Place a Bid</a>
-                                <div class="share-area">
-                                    <ul class="social-icons d-flex">
-                                        <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
-                                        <li><a href="https://www.twitter.com/"><i class="bx bxl-twitter"></i></a></li>
-                                        <li><a href="https://www.pinterest.com/"><i class="bx bxl-pinterest"></i></a></li>
-                                        <li><a href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a></li>
-                                    </ul>
-                                    <div>
-                                        <div class="share-btn"><i class='bx bxs-share-alt'></i></div>
-                                    </div>
-                                </div>
+                                <form action="{{ Route('cart.store') }}" method="post">@csrf
+                                    <button type="submit" style="border: none;"> <a class="eg-btn btn--primary btn--sm">Add To Card</a></button>
+                                    <input type="hidden" name="id" value="{{ $product->id }}">
+                                </form>
 
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay=".4s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc6.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer6">
-                                    <h4><span id="hours6">05</span>H : <span id="minutes6">52</span>M : <span
-                                            id="seconds6">32</span>S</h4>
-                                </div>
-                            </div>
-                            <div class="author-area">
-                                <div class="author-emo">
-                                    <img alt="image" src="assets/images/icons/smile-emo.svg">
-                                </div>
-                                <div class="author-name">
-                                    <span>by @robatfox</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">IPhone 11 Pro Max All Variants Available For Special
-                                    Sale</a>
-                            </h4>
-                            <p>Bidding Price : <span>$85.9</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Place a Bid</a>
                                 <div class="share-area">
                                     <ul class="social-icons d-flex">
                                         <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
@@ -663,16 +463,16 @@
                                         <div class="share-btn"><i class='bx bxs-share-alt'></i></div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
+                @endforeach
+
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-4 text-center">
-                    <a href="live-auction.html" class="eg-btn btn--primary btn--md mx-auto">View All</a>
+                    <a href="{{ route('allProduct') }}" class="eg-btn btn--primary btn--md mx-auto">View All</a>
                 </div>
             </div>
         </div>
@@ -697,11 +497,12 @@
             <div class="row d-flex justify-content-center">
                 <div class="swiper upcoming-slider">
                     <div class="swiper-wrapper">
+                        @foreach($productRandom as $product)
                         <div class="swiper-slide">
                             <div class="eg-card c-feature-card1 wow animate fadeInDown" data-wow-duration="1.5s"
                                 data-wow-delay="0.2s">
                                 <div class="auction-img">
-                                    <img alt="image" src="assets/images/bg/umcoming1.png">
+                                    <img alt="image" src="{{ $product->imageUrl() }}">
                                     <div class="auction-timer2 gap-lg-3 gap-md-2 gap-1" id="timer7">
                                         <div class="countdown-single">
                                             <h5 id="days7">7</h5>
@@ -732,11 +533,11 @@
                                 <div class="c-feature-content">
                                     <div class="c-feature-category">Time Zoon</div>
                                     <a href="auction-details.html">
-                                        <h4>Michael Korian Gold Special Watch m20L6 Bidding</h4>
+                                        <h4>{{ $product->name }}</h4>
                                     </a>
-                                    <p>Bidding Price : <span>$15.99</span></p>
+                                    <p>Bidding Price : <span>{{ $product->price }}</span></p>
                                     <div class="auction-card-bttm">
-                                        <a href="auction-details.html" class="eg-btn btn--primary btn--sm">View
+                                        <a href="{{ route('productDetails',$product->id) }}" class="eg-btn btn--primary btn--sm">View
                                             Details</a>
                                         <div class="share-area">
                                             <ul class="social-icons d-flex">
@@ -757,190 +558,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="eg-card c-feature-card1 wow animate fadeInDown" data-wow-duration="1.5s"
-                                data-wow-delay="0.4s">
-                                <div class="auction-img">
-                                    <img alt="image" src="assets/images/bg/umcoming2.png">
-                                    <div class="auction-timer2 gap-lg-3 gap-md-2 gap-1" id="timer8">
-                                        <div class="countdown-single">
-                                            <h5 id="days8">7</h5>
-                                            <span>Days</span>
-                                        </div>
-                                        <div class="countdown-single">
-                                            <h5 id="hours8">05</h5>
-                                            <span>Hours</span>
-                                        </div>
-                                        <div class="countdown-single">
-                                            <h5 id="minutes8">56</h5>
-                                            <span>Mins</span>
-                                        </div>
-                                        <div class="countdown-single">
-                                            <h5 id="seconds8">08</h5>
-                                            <span>Secs</span>
-                                        </div>
-                                    </div>
-                                    <div class="author-area2">
-                                        <div class="author-emo">
-                                            <img alt="image" src="assets/images/bg/upcoming-author2.png">
-                                        </div>
-                                        <div class="author-name">
-                                            <span>by @robatfox</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="c-feature-content">
-                                    <div class="c-feature-category">Lit Gaslighte</div>
-                                    <a href="auction-details.html">
-                                        <h4>Watercolor Special Lighter 2.2 For Saleing Offer</h4>
-                                    </a>
-                                    <p>Bidding Price : <span>$15.99</span></p>
-                                    <div class="auction-card-bttm">
-                                        <a href="auction-details.html" class="eg-btn btn--primary btn--sm">View
-                                            Details</a>
-                                        <div class="share-area">
-                                            <ul class="social-icons d-flex">
-                                                <li><a href="https://www.facebook.com/"><i
-                                                            class="bx bxl-facebook"></i></a></li>
-                                                <li><a href="https://www.twitter.com/"><i class="bx bxl-twitter"></i></a>
-                                                </li>
-                                                <li><a href="https://www.pinterest.com/"><i
-                                                            class="bx bxl-pinterest"></i></a></li>
-                                                <li><a href="https://www.instagram.com/"><i
-                                                            class="bx bxl-instagram"></i></a></li>
-                                            </ul>
-                                            <div>
-                                                <a href="#" class="share-btn"><i class='bx bxs-share-alt'></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="eg-card c-feature-card1 wow animate fadeInDown" data-wow-duration="1.5s"
-                                data-wow-delay="0.6s">
-                                <div class="auction-img">
-                                    <img alt="image" src="assets/images/bg/umcoming3.png">
-                                    <div class="auction-timer2 gap-lg-3 gap-md-2 gap-1" id="timer9">
-                                        <div class="countdown-single">
-                                            <h5 id="days9">7</h5>
-                                            <span>Days</span>
-                                        </div>
-                                        <div class="countdown-single">
-                                            <h5 id="hours9">05</h5>
-                                            <span>Hours</span>
-                                        </div>
-                                        <div class="countdown-single">
-                                            <h5 id="minutes9">56</h5>
-                                            <span>Mins</span>
-                                        </div>
-                                        <div class="countdown-single">
-                                            <h5 id="seconds9">08</h5>
-                                            <span>Secs</span>
-                                        </div>
-                                    </div>
-                                    <div class="author-area2">
-                                        <div class="author-emo">
-                                            <img alt="image" src="assets/images/bg/upcoming-author3.png">
-                                        </div>
-                                        <div class="author-name">
-                                            <span>by @robatfox</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="c-feature-content">
-                                    <div class="c-feature-category">Motor Bike</div>
-                                    <a href="auction-details.html">
-                                        <h4>BMW AIGID A Class Hatch M26 Motor Bike</h4>
-                                    </a>
-                                    <p>Bidding Price : <span>$15.99</span></p>
-                                    <div class="auction-card-bttm">
-                                        <a href="auction-details.html" class="eg-btn btn--primary btn--sm">View
-                                            Details</a>
-                                        <div class="share-area">
-                                            <ul class="social-icons d-flex">
-                                                <li><a href="https://www.facebook.com/"><i
-                                                            class="bx bxl-facebook"></i></a></li>
-                                                <li><a href="https://www.twitter.com/"><i class="bx bxl-twitter"></i></a>
-                                                </li>
-                                                <li><a href="https://www.pinterest.com/"><i
-                                                            class="bx bxl-pinterest"></i></a></li>
-                                                <li><a href="https://www.instagram.com/"><i
-                                                            class="bx bxl-instagram"></i></a></li>
-                                            </ul>
-                                            <div>
-                                                <a href="#" class="share-btn"><i class='bx bxs-share-alt'></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="eg-card c-feature-card1 wow animate fadeInDown" data-wow-duration="1.5s"
-                                data-wow-delay=".8s">
-                                <div class="auction-img">
-                                    <img alt="image" src="assets/images/bg/umcoming4.png">
-                                    <div class="auction-timer2 gap-lg-3 gap-md-2 gap-1" id="timer10">
-                                        <div class="countdown-single">
-                                            <h5 id="days10">7</h5>
-                                            <span>Days</span>
-                                        </div>
-                                        <div class="countdown-single">
-                                            <h5 id="hours10">05</h5>
-                                            <span>Hours</span>
-                                        </div>
-                                        <div class="countdown-single">
-                                            <h5 id="minutes10">56</h5>
-                                            <span>Mins</span>
-                                        </div>
-                                        <div class="countdown-single">
-                                            <h5 id="seconds10">08</h5>
-                                            <span>Secs</span>
-                                        </div>
-                                    </div>
-                                    <div class="author-area2">
-                                        <div class="author-emo">
-                                            <img alt="image" src="assets/images/bg/upcoming-author1.png">
-                                        </div>
-                                        <div class="author-name">
-                                            <span>by @robatfox</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="c-feature-content">
-                                    <div class="c-feature-category">Test Watch</div>
-                                    <a href="auction-details.html">
-                                        <h4>Microlab Amazing Head-phone With Adapter</h4>
-                                    </a>
-                                    <p>Bidding Price : <span>$15.99</span></p>
-                                    <div class="auction-card-bttm">
-                                        <a href="auction-details.html" class="eg-btn btn--primary btn--sm">View
-                                            Details</a>
-                                        <div class="share-area">
-                                            <ul class="social-icons d-flex">
-                                                <li><a href="https://www.facebook.com/"><i
-                                                            class="bx bxl-facebook"></i></a></li>
-                                                <li><a href="https://www.twitter.com/"><i class="bx bxl-twitter"></i></a>
-                                                </li>
-                                                <li><a href="https://www.pinterest.com/"><i
-                                                            class="bx bxl-pinterest"></i></a></li>
-                                                <li><a href="https://www.instagram.com/"><i
-                                                            class="bx bxl-instagram"></i></a></li>
-                                            </ul>
-                                            <div>
-                                                <a href="#" class="share-btn"><i class='bx bxs-share-alt'></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
+
                 </div>
                 <div class="slider-bottom d-flex justify-content-between align-items-center">
-                    <a href="live-auction.html" class="eg-btn btn--primary btn--md">View ALL</a>
+                    <a href="{{ route('allProduct') }}" class="eg-btn btn--primary btn--md">View ALL</a>
                     <div class="swiper-pagination style-3 d-lg-block d-none"></div>
                     <div class="slider-arrows coming-arrow d-flex gap-3">
                         <div class="coming-prev1 swiper-prev-arrow" tabindex="0" role="button"
@@ -958,11 +581,11 @@
     <!-- =============== testimonial-section start =============== -->
 
     <div class="testimonial-section pt-80 pb-80">
-        <img alt="image" src="assets/images/bg/client-right.png" class="client-right-vector">
-        <img alt="image" src="assets/images/bg/client-left.png" class="client-left-vector">
-        <img alt="image" src="assets/images/bg/clent-circle1.png" class="client-circle1">
-        <img alt="image" src="assets/images/bg/clent-circle2.png" class="client-circle2">
-        <img alt="image" src="assets/images/bg/clent-circle3.png" class="client-circle3">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/client-right.png') }}" class="client-right-vector">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/client-left.png') }}" class="client-left-vector">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/clent-circle1.png') }}" class="client-circle1">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/clent-circle2.png') }}" class="client-circle2">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/clent-circle3.png') }}" class="client-circle3">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
@@ -980,9 +603,9 @@
                         <div class="swiper-slide">
                             <div class="testimonial-single hover-border1 wow fadeInDown" data-wow-duration="1.5s"
                                 data-wow-delay=".2s">
-                                <img alt="image" src="assets/images/icons/quote-green.svg" class="quote-icon">
+                                <img alt="image" src="{{ asset('assets/frontend/images/icons/quote-green.svg') }}" class="quote-icon">
                                 <div class="testi-img">
-                                    <img alt="image" src="assets/images/bg/testi1.png">
+                                    <img alt="image" src="{{ asset('assets/frontend/images/bg/testi1.png') }}">
                                 </div>
                                 <div class="testi-content">
                                     <p class="para">The Pacific Grove Chamber of Commerce would like to thank eLab
@@ -1000,7 +623,7 @@
                                 data-wow-delay=".4s">
                                 <img alt="image" src="assets/images/icons/quote-green.svg" class="quote-icon">
                                 <div class="testi-img">
-                                    <img alt="image" src="assets/images/bg/testi2.png">
+                                    <img alt="image" src="{{ asset('assets/frontend/images/bg/testi2.png') }}">
                                 </div>
                                 <div class="testi-content">
                                     <p class="para">Nullam cursus tempor ex. Nullam nec dui id metus consequat congue ac
@@ -1015,9 +638,9 @@
                         <div class="swiper-slide">
                             <div class="testimonial-single hover-border1 wow fadeInDown" data-wow-duration="1.5s"
                                 data-wow-delay=".4s">
-                                <img alt="image" src="assets/images/icons/quote-green.svg" class="quote-icon">
+                                <img alt="image" src="{{ asset('assets/frontend/images/icons/quote-green.svg') }}" class="quote-icon">
                                 <div class="testi-img">
-                                    <img alt="image" src="assets/images/bg/testi3.png">
+                                    <img alt="image" src="{{ asset('assets/frontend/images/bg/testi3.png') }}">
                                 </div>
                                 <div class="testi-content">
                                     <p class="para">Maecenas vitae porttitor neque, ac porttitor nunc. Duis venenatis
@@ -1061,34 +684,23 @@
             <div class="row">
                 <div class="slick-wrapper wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
                     <div id="slick1">
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor1.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor2.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor3.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor4.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor5.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor6.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor7.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor8.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor9.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor1.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor3.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor5.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor8.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor6.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor7.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor8.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor1.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor2.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor9.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor8.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor9.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor1.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor3.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor5.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor8.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor6.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor7.png"></div>
-                        <div class="slide-item"><img alt="image" src="assets/images/bg/sponsor8.png"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor1.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor2.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor3.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor4.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor5.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor6.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor7.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor8.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor9.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor1.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor2.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor3.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor4.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor5.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor6.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor7.png') }}"></div>
+                        <div class="slide-item"><img alt="image" src="{{ asset('assets/frontend/images/bg/sponsor8.png') }}"></div>
                     </div>
                 </div>
             </div>
@@ -1099,8 +711,8 @@
     <!-- =============== recent-news-section start =============== -->
 
     <div class="recent-news-section pt-120 pb-120">
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg">
-        <img alt="image" src="assets/images/icons/dot-circle.svg" class="dot-circle">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg">
+        <img alt="image" src="{{ asset('assets/frontend/images/icons/dot-circle.svg') }}" class="dot-circle">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
@@ -1118,18 +730,18 @@
                         data-wow-delay="0.2s">
                         <div class="blog-img">
                             <a href="#" class="blog-date"><i class="bi bi-calendar-check"></i>Jan 30, 2022</a>
-                            <img alt="image" src="assets/images/blog/blogstyle11.png">
+                            <img alt="image" src="{{ asset('assets/frontend/images/blog/blogstyle11.png') }}">
                         </div>
                         <div class="blog-content">
                             <h5><a href="blog-details.html">David Droga Still Has Faith in Online Advertising Creative
                                     Digital Reviews</a></h5>
                             <div class="blog-meta">
                                 <div class="author">
-                                    <img alt="image" src="assets/images/blog/author1.png">
+                                    <img alt="image" src="{{ asset('assets/frontend/images/blog/author1.png') }}">
                                     <a href="blog.html" class="author-name">Johan Martin</a>
                                 </div>
                                 <div class="comment">
-                                    <img alt="image" src="assets/images/icons/comment-icon.svg">
+                                    <img alt="image" src="{{ asset('assets/frontend/images/icons/comment-icon.svg') }}">
                                     <a href="#" class="comment">05 Comments</a>
                                 </div>
                             </div>
@@ -1141,18 +753,18 @@
                         data-wow-delay="0.4s">
                         <div class="blog-img">
                             <a href="#" class="blog-date"><i class="bi bi-calendar-check"></i>May 30, 2022</a>
-                            <img alt="image" src="assets/images/blog/blogstyle12.png">
+                            <img alt="image" src="{{ asset('assets/frontend/images/blog/blogstyle12.png') }}">
                         </div>
                         <div class="blog-content">
                             <h5><a href="blog-details.html">Take our friend Johnny No-Job, for example. He’s a
                                     specialist in influencer.</a></h5>
                             <div class="blog-meta">
                                 <div class="author">
-                                    <img alt="image" src="assets/images/blog/author1.png">
+                                    <img alt="image" src="{{ asset('assets/frontend/images/blog/author1.png') }}">
                                     <a href="blog.html" class="author-name">Johan Martin</a>
                                 </div>
                                 <div class="comment">
-                                    <img alt="image" src="assets/images/icons/comment-icon.svg">
+                                    <img alt="image" src="{{ asset('assets/frontend/images/icons/comment-icon.svg') }}">
                                     <a href="#" class="comment">05 Comments</a>
                                 </div>
                             </div>

@@ -46,7 +46,13 @@
                                 <h4><a href="auction-details.html">{{ $product->name }}</a></h4>
                                 <p>Bidding Price : <span>{{ $product->price }}</span></p>
                                 <div class="auction-card-bttm">
-                                    <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Place a Bid</a>
+                                    <form action="{{ Route('cart.store') }}" method="post">@csrf
+
+                                         <button type="submit" style="border: none;"> <a class="eg-btn btn--primary btn--sm">Add To Card</a></button>
+                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                    </form>
+
+                                    
                                     <div class="share-area">
                                         <ul class="social-icons d-flex">
                                             <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
@@ -68,7 +74,7 @@
 
                 <div class= "row">
                     <div class="pagination d-flex justify-content-center">
-                        {{ $products->links() }}
+                        {{ $products->links("frontend.pagination.pagination") }}
                     </div>
                 </div>
             </div>

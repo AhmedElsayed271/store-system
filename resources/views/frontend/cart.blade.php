@@ -1,136 +1,100 @@
-<x-front-layout>
-    <x-slot name='breadcrump'>
-        <!-- Start Breadcrumbs -->
-        <div class="breadcrumbs">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="breadcrumbs-content">
-                            <h1 class="page-title">Cart</h1>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <ul class="breadcrumb-nav">
-                            <li><a href="index.html"><i class="lni lni-home"></i> Home</a></li>
-                            <li><a href="index.html">Shop</a></li>
-                            <li>Cart</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Breadcrumbs -->
-    </x-slot name='breadcrump'>
-    <!-- Shopping Cart -->
-    <div class="shopping-cart section">
-        <div class="container">
-            <div class="cart-list-head">
-                <!-- Cart List Title -->
-                <div class="cart-list-title">
-                    <div class="row">
-                        <div class="col-lg-1 col-md-1 col-12">
+@extends('frontend.layouts.frontLayout')
 
-                        </div>
-                        <div class="col-lg-4 col-md-3 col-12">
-                            <p>Product Name</p>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <p>Quantity</p>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <p>Subtotal</p>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <p>Discount</p>
-                        </div>
-                        <div class="col-lg-1 col-md-2 col-12">
-                            <p>Remove</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Cart List Title -->
-                @foreach ($cart as $product)
-                    <!-- Cart Single List list -->
-                    <div class="cart-single-list">
-                        <div class="row align-items-center">
-                            <div class="col-lg-1 col-md-1 col-12">
-                                <a href="product-details.html"><img src="https://via.placeholder.com/220x200"
-                                        alt="#"></a>
-                            </div>
-                            <div class="col-lg-4 col-md-3 col-12">
-                                <h5 class="product-name"><a href="product-details.html">
-                                        Canon EOS M50 Mirrorless Camera</a></h5>
-                                <p class="product-des">
-                                    <span><em>Type:</em> Mirrorless</span>
-                                    <span><em>Color:</em> Black</span>
-                                </p>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-12">
-                                <div class="count-input">
-                                   <form action="{{ route('cart.update',$product->product_id) }}" method="post">
-                                    @method('put')
-                                    @csrf
-                                       <input type='text' name='quantity' value="{{ $product->quantity }}" class="col-sm-8" />
-                                       <input type="submit" class="btn btn-primary btn-sm" value='Update' style='margin-bottom: 10px' />
-                                   </form>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-12">
-                                <p>$910.00</p>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-12">
-                                <p>$29.00</p>
-                            </div>
-                            <div class="col-lg-1 col-md-2 col-12">
-                                <form action="{{ route('cart.destroy', $product->product_id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="remove-item" href="javascript:void(0)"><i
-                                            class="lni lni-close"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single List list -->
-                @endforeach
-            </div>
-            <div class="row">
+@section('title', 'Cart')
+
+@section('content')
+    <section class="h-100 h-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <x-alert type="success" />
                 <div class="col-12">
-                    <!-- Total Amount -->
-                    <div class="total-amount">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-6 col-12">
-                                <div class="left">
-                                    <div class="coupon">
-                                        <form action="#" target="_blank">
-                                            <input name="Coupon" placeholder="Enter Your Coupon">
-                                            <div class="button">
-                                                <button class="btn">Apply Coupon</button>
+                    <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                        <div class="card-body p-0">
+                            <div class="row g-0">
+                                <div class="col-lg-8">
+                                    <div class="p-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-5">
+                                            <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+                                            <h6 class="mb-0 text-muted">{{ $count }} items</h6>
+                                        </div>
+                                        @foreach ($cart as $item)
+                                            <hr class="my-4">
+                                            <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                                    <img src="{{ $item->product->imageurl() }}"
+                                                        class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                                </div>
+                                                <div class="col-md-3 col-lg-3 col-xl-3">
+                                                    <h6 class="text-muted">{{ $item->product->name }}</h6>
+                                                    <h6 class="text-black mb-0">{{ $item->product->name }}</h6>
+                                                </div>
+                                                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                    <button class="btn btn-link px-2"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+
+                                                    <form action="{{ route('cart.update',$item->product_id) }}" method="post">
+                                                        @csrf
+                                                        @method('put')
+                                                        <input id="form1" style="min-width: 57px; margin-bottom: 10px;" min="1" name="quanity" value="{{ $item->quanity }}"
+                                                        type="number" class="form-control form-control-sm" />
+                                                        <input type="submit" class="bt btn-success" value="Update">
+                                                    </form>
+
+                                                    <button class="btn btn-link px-2"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                    <h6 class="mb-0">₪ {{ $item->product->price }}</h6>
+                                                </div>
+                                                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                                    <form action="{{ route('cart.destroy', $item->product_id) }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" href="#!" class="text-muted"><i class="fas fa-times"></i></button>
+                                                    </form>
+                               
+                                                </div>
                                             </div>
-                                        </form>
+   
+                                        @endforeach
+   
+
+                                        <hr class="my-4">
+
+                                        <div class="pt-5">
+                                            <h6 class="mb-0"><a href="#!" class="text-body"><i
+                                                        class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="right">
-                                    <ul>
-                                        <li>Cart Subtotal<span>${{ $total }}</span></li>
-                                        <li>Shipping<span>Free</span></li>
-                                        <li>You Save<span>$29.00</span></li>
-                                        <li class="last">You Pay<span>$2531.00</span></li>
-                                    </ul>
-                                    <div class="button">
-                                        <a href="checkout.html" class="btn">Checkout</a>
-                                        <a href="product-grids.html" class="btn btn-alt">Continue shopping</a>
+                                <div class="col-lg-4 bg-grey">
+                                    <div class="p-5">
+                                        <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                                        <hr class="my-4">
+
+                                        <div class="d-flex justify-content-between mb-5 px-3">
+                                            <h5 class="text-uppercase">Total price</h5>
+                                            <h5>{{ $total }}$</h5>
+                                        </div>
+
+                                        <button type="button" class="btn btn-dark btn-block btn-lg mx-3"
+                                            data-mdb-ripple-color="dark">checkout</button>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--/ End Total Amount -->
                 </div>
             </div>
         </div>
-    </div>
-    <!--/ End Shopping Cart -->
-</x-front-layout>
+    </section>
+@endsection
+
+@section('css')
+<link rel="stylesheet" href="cart.css">
+@endsection

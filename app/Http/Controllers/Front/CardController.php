@@ -18,12 +18,14 @@ class CardController extends Controller
     public function index()
     {
         $repository = new CartModelRrpositroies();
-        
+
         $total = $repository->total();
-        
+
         $cart = $repository->get();
 
-        return view('frontend.cart', compact('cart','total'));
+        $count = $repository->count();
+
+        return view('frontend.cart', compact('total', 'cart', 'count'));
     }
 
     /**
@@ -46,16 +48,19 @@ class CardController extends Controller
 
             $repository = new CartModelRrpositroies();
 
-            return $repository->update($request->id, 0);
+            $repository->update($request->id, 0, true);
+            
+            return redirect()->route('cart.index')->with(['success' => "Updated Successfuly"]);
 
         } else {
 
             $repository = new CartModelRrpositroies();
 
-            return $repository->add($request->id, 1);
+            $repository->add($request->id, 1);
+
+            return redirect()->route('cart.index')->with(['success' => "Added Successfuly"]);
         }
 
-        return $product;
     }
 
     /**
@@ -80,8 +85,10 @@ class CardController extends Controller
     {
 
         $repository = new CartModelRrpositroies();
+    
+        $repository->update($id, $request->quanity, false);
 
-        return $repository->update($id, $request->quantity);
+        return redirect()->route('cart.index')->with(['success' => "Updated Successfuly"]);
     }
 
     /**
@@ -93,6 +100,6 @@ class CardController extends Controller
 
         $repository->delete($id);
 
-        return redirect()->route('cart.index');
+        return redirect()->route('cart.index')->with(['success' => "Deleted Successfuly"]);
     }
 }

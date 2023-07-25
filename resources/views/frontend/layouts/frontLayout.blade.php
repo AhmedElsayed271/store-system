@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bidout - Auction and Bidding HTML Template</title>
+    <title>@yield('title')</title>
     <link rel="icon" href="assets/images/bg/sm-logo.png" type="image/gif" sizes="20x20">
 
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/animate.css') }}">
@@ -147,7 +147,7 @@
                     <a href="how-works.html">How It Works</a>
                 </li>
                 <li>
-                    <a href="live-auction.html">Browse Product</a>
+                    <a href="{{ route('allProduct') }}">Browse Product</a>
                 </li>
                 <li class="menu-item-has-children">
                     <a href="#">News</a><i class='bx bx-plus dropdown-icon'></i>
@@ -162,8 +162,8 @@
                         <li><a href="auction-details.html">Auction Details</a></li>
                         <li><a href="faq.html">Faq</a></li>
                         <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Sign Up</a></li>
                         <li><a href="404.html">404</a></li>
                     </ul>
                 </li>
@@ -198,9 +198,11 @@
             <div class="search-btn">
                 <i class="bi bi-search"></i>
             </div>
-             <div class="eg-btn btn--primary header-btn">
-                <a href="account.html">My Account</a>
-            </div>
+            @auth
+                <div class="eg-btn btn--primary header-btn">
+                    <a href="{{ route('myAccount') }}">My Account</a>
+                </div>
+            @endauth
             <div class="mobile-menu-btn d-lg-none d-block">
                 <i class='bx bx-menu'></i>
             </div>

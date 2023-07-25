@@ -22,7 +22,24 @@ class CartModelRrpositroies implements cartRepositroies
         } else {
             $cart->where('cookie_id', '=', $this->getCookieId());
         }
-        return $cart->get();
+        return $cart->with('product')->get();
+    }
+
+    public function count()
+    {
+        $cart = Cart::query();
+
+        if (Auth::check()) {
+
+            $cart->where('user_id', '=', Auth::id());
+
+        } else {
+
+            $cart->where('cookie_id', '=', $this->getCookieId());
+
+        }
+
+        return $cart->count();
     }
 
     public function add($id, $quanitiy)
@@ -31,19 +48,19 @@ class CartModelRrpositroies implements cartRepositroies
             Cart::create([
                 'user_id' => Auth::id(),
                 'product_id' => $id,
-                'quantity' => $quanitiy,
+                'quanity' => $quanitiy,
             ]);
         } else {
             Cart::create([
                 'cookie_id' => $this->getCookieId(),
                 'user_id' => Auth::id(),
                 'product_id' => $id,
-                'quantity' => $quanitiy,
+                'quanity' => $quanitiy,
             ]);
         }
     }
 
-    public function update($id, $quanitiy)
+    public function update($id, $quanitiy, $incrment = true)
     {
         $cart = Cart::query();
 
@@ -54,12 +71,13 @@ class CartModelRrpositroies implements cartRepositroies
             $cart->where('cookie_id', '=', $this->getCookieId());
         }
 
-        if ($quanitiy > 0) {
+        if ($incrment) {
 
-            return $cart->where('product_id', '=', $id)->update(['quantity' => $quanitiy]);
+            return $cart->where('product_id', '=', $id)->increment('quanity',  1);
         }
+        
+        return $cart->where('product_id', '=', $id)->update(['quanity' => $quanitiy]);
 
-        return $cart->where('product_id', '=', $id)->increment('quantity',  1);
     }
 
     public function delete($id)
@@ -91,8 +109,12 @@ class CartModelRrpositroies implements cartRepositroies
             $cart->where('cookie_id', '=', $this->getCookieId());
         }
 
-        return $cart->selectRaw('SUM(carts.quantity * products.price) as total')
-            ->join('products', 'carts.product_id', '=', 'products.id')->groupBy($groupBy)->first()->total;
+
+        $total = $cart->selectRaw('SUM(carts.quanity * products.price) as total')
+            ->join('products', 'carts.product_id', '=', 'products.id')->groupBy($groupBy)->first()->total ?? 0;
+
+        return $total;
+
     }
 
     public function getCookieId()

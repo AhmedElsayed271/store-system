@@ -69,6 +69,18 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <form action="{{ route('logout') }}" method="POST">
+              @csrf
+              <button style="display: inline;" type="submit" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Logout
+                </p>
+              </button>
+            </form>
+           
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\Dashboard\CategoriesController;
-use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\ProductsController;
-use App\Http\Controllers\dashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\ProductsController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'auth.admin']], function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/categories/trash', [CategoriesController::class, 'trash'])->name('categories.trash');

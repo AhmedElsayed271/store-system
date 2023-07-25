@@ -27,7 +27,12 @@ use App\Http\Controllers\Front\ProductController;
 |
 */
 
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::get('/my-account', [HomeController::class, 'myAccount'])->name('myAccount');
+// });
+
 Route::get('/', [HomeController::class, 'index']);
+
 
 Route::get('/mab', [MapController::class, 'show']);
 Route::get('/test', function () {
@@ -37,8 +42,8 @@ Route::get('/test', function () {
     return "Done!";
 });
 
-Route::get('/product-details/{product:slug}', [ProductController::class, 'show'])->name('product-details');
 Route::get('/all-product', [ProductController::class, 'allProduct'])->name('allProduct');
+Route::get('/product-details/{id}', [ProductController::class, 'productDetails'])->name('productDetails');
 
 Route::resource('/cart', CardController::class);
 
@@ -46,6 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/my-account', [HomeController::class, 'myAccount'])->name('myAccount');
 });
 
 Route::get('/notify', function () {

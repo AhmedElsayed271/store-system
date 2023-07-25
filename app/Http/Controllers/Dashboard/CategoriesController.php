@@ -67,6 +67,7 @@ class CategoriesController extends Controller
      */
     public function store(CategoryRequest $request)
     {
+
         $request->request->remove('_token');
 
         $data = $request->toArray();
@@ -100,8 +101,9 @@ class CategoriesController extends Controller
      */
     public function edit(string $id)
     {
-        return "test";
+
         $category = Category::findOrFail($id);
+
         $categories = Category::where('id', "<>", $id)->where(function ($query) use ($id) {
             $query->whereNull("parent_id")->orWhere('parent_id', "<>", $id);
         })
@@ -114,7 +116,6 @@ class CategoriesController extends Controller
      */
     public function update(CategoryRequest $request, string $id)
     {
-        return "test";
 
         $category = Category::findOrFail($id);
 

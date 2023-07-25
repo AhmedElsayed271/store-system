@@ -11,11 +11,13 @@ interface cartRepositroies
     
     public function add($id, $quanitiy);
 
-    public function update($id, $quantity);
+    public function update($id, $quantity, $incrment);
     
     public function delete(Product $product);
     
     public function empty();
     
     public function total();
+    
+    public function count();
 }

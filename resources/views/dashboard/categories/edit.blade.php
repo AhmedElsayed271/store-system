@@ -33,7 +33,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('products.update',$category->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('categories.update',$category->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             @include('dashboard.categories._form', ['button_name' => "Update"])

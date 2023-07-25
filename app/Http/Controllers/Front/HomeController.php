@@ -13,8 +13,14 @@ class HomeController extends Controller
 {
     public function index()
     {   
-        $products = Product::with('category')->active()->latest()->limit(8)->get();
+        $products = Product::with('category')->active()->latest()->limit(6)->get();
+        $productRandom = Product::with('category')->inRandomOrder()->limit(6)->get();
 
-        return view('frontend.home', compact('products'));
+        return view('frontend.home', compact('products', 'productRandom'));
+    }
+
+    public function myAccount()
+    {
+        return view('frontend.my-account');
     }
 }
