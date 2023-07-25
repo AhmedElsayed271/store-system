@@ -51,7 +51,6 @@ class ProductsController extends Controller
             'slug'          => Str::slug($request->name),
             'price'         => $request->price,
             'description'   => $request->description,
-            "store_id"         => 2,
             'status'        => $request->status,
             'category_id'        => $request->category_id,
             'photo'         => $path

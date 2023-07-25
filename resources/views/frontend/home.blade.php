@@ -436,7 +436,7 @@
                             </div>
                             <div class="author-area">
                                 <div class="author-emo">
-                                    <img alt="image" src="">
+                                    <img alt="image" src="{{ asset('assets/frontend/images/bg/dotted1.png') }}">
                                 </div>
                                 <div class="author-name">
                                     <span>by @robatfox</span>
