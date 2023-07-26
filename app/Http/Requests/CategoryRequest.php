@@ -32,7 +32,7 @@ class CategoryRequest extends FormRequest
             //     }
             // },
             "parent_id" => "nullable|int|exists:categories,id",
-            "photo" => "nullable|image|mimes:png,jpg",
+            "photo" => "required|image|mimes:png,jpg",
             "status"=> "required|in:active,archived,inactive"
         ];
     }

@@ -19,15 +19,15 @@
         <label for="exampleInputPassword1">Description</label>
         <select name="parent_id" id="" class="form-control @error('parent_id') is-invalid @enderror">
             <option value="">Primary Category</option>
-      
+
             @foreach ($categories as $cat)
-         
-                <option @if($cat->id == $category->id) selected @endif value="{{ $cat->id }}">{{ $cat->name }}</option>
+                <option @if ($cat->id == $category->id) selected @endif value="{{ $cat->id }}">
+                    {{ $cat->name }}</option>
             @endforeach
         </select>
         @error('parent_id')
-        <div class="text-danger mt-2"> {{ $message }} </div>
-    @enderror
+            <div class="text-danger mt-2"> {{ $message }} </div>
+        @enderror
     </div>
     <div class="form-group">
         <label for="exampleInputFile">Photo</label>
@@ -40,15 +40,18 @@
                 <span class="input-group-text">Upload</span>
             </div>
         </div>
+        @error('photo')
+            <div class="text-danger mt-2"> {{ $message }} </div>
+        @enderror
     </div>
     <!-- radio -->
     <div class="form-group">
         <div class="form-check">
-            <input value="active" class="form-check-input" type="radio" name="status" @checked($category->status == 'active')>
+            <input value="active " class="form-check-input" type="radio" name="status" @checked(old('status', $category->status) == 'active')>
             <label class="form-check-label">Active</label>
         </div>
         <div class="form-check">
-            <input value="inactive" class="form-check-input" type="radio" name="status" @checked($category->status == 'inactive')>
+            <input value="inactive" class="form-check-input" type="radio" name="status" @checked(old('status', $category->status) == 'inactive')>
             <label class="form-check-label">inActive</label>
         </div>
         <div class="form-check">
@@ -56,8 +59,8 @@
             <label class="form-check-label">Archived</label>
         </div>
         @error('status')
-        <div class="text-danger mt-2"> {{ $message }} </div>
-    @enderror
+            <div class="text-danger mt-2"> {{ $message }} </div>
+        @enderror
     </div>
 </div>
 <!-- /.card-body -->

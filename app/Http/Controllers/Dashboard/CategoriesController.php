@@ -161,7 +161,9 @@ class CategoriesController extends Controller
     public function forceDelete($id)
     {   
         $category = Category::onlyTrashed()->find($id);
+
         $photo = $category->photo;
+        
         $category->forceDelete();
         
         Storage::disk('upload')->delete($photo);
