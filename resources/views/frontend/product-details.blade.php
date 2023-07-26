@@ -67,6 +67,10 @@
                         <h3>{{ $product->name }}</h3>
                         <p class="para">{{ $product->description }}</p>
                         <h4>Bidding Price: <span>${{ $product->price }}</span></h4>
+                        <form action="{{ Route('cart.store') }}" method="post">@csrf
+                            <button type="submit" style="border: none;"> <a class="eg-btn btn--primary btn--sm">Add To Card</a></button>
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                        </form>
                         <div class="bid-form">
                             <div class="form-title">
                                 <h5>Bid Now</h5>
