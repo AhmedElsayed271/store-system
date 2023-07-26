@@ -30,36 +30,40 @@
                     class="col-xl-6 col-lg-7 d-flex flex-row align-items-start justify-content-lg-start justify-content-center flex-md-nowrap flex-wrap gap-4">
                     <ul class="nav small-image-list d-flex flex-md-column flex-row justify-content-center gap-4  wow fadeInDown"
                         data-wow-duration="1.5s" data-wow-delay=".4s">
-                        @foreach ($product->photos as $photo)
+                        <li class="nav-item">
+                            <div id="details-img0" data-bs-toggle="pill" data-bs-target="#gallery-img0"
+                                aria-controls="gallery-img0">
+                                <img alt="image" src="{{ $product->imageUrl() }}" class="img-fluid">
+                            </div>
+                        </li>
+                        @foreach ($product->photos as $key => $photo)
+                            @php $i = 1 @endphp
                             <li class="nav-item">
-                                <div id="details-img1" data-bs-toggle="pill" data-bs-target="#gallery-img1"
-                                    aria-controls="gallery-img1">
+                                <div id="details-img{{ $key +1 }}" data-bs-toggle="pill" data-bs-target="#gallery-img{{ $key +1 }}"
+                                    aria-controls="gallery-img{{ $key + 1 }}">
                                     <img alt="image" src="{{ asset('assets/dashboard/uploads') . '/'. $photo->photo }}" class="img-fluid">
                                 </div>
                             </li> 
+                            @php $i++ @endphp
                         @endforeach
   
                     </ul>
                     <div class="tab-content mb-4 d-flex justify-content-lg-start justify-content-center  wow fadeInUp"
                         data-wow-duration="1.5s" data-wow-delay=".4s">
-                        <div class="tab-pane big-image fade show active" id="gallery-img1">
+                        <div class="tab-pane big-image fade show active" id="gallery-img0">
                             <div class="auction-gallery-timer d-flex align-items-center justify-content-center flex-wrap">
                                 <h3 id="countdown-timer-1">&nbsp;</h3>
                             </div>
                             <img alt="image" src="{{ $product->imageUrl() }}" class="img-fluid">
                         </div>
-                        <div class="tab-pane big-image fade" id="gallery-img2">
-                            <div class="auction-gallery-timer d-flex align-items-center justify-content-center">
-                                <h3 id="countdown-timer-2">&nbsp;</h3>
+                        @foreach($product->photos as $key => $photo)
+                            <div class="tab-pane big-image fade" id="gallery-img{{ $key + 1 }}">
+                                <div class="auction-gallery-timer d-flex align-items-center justify-content-center">
+                                    <h3 id="countdown-timer-{{ $key + 1 }}">&nbsp;</h3>
+                                </div>
+                                <img alt="image" src="{{ asset('assets/dashboard/uploads') . '/'. $photo->photo }}" class="img-fluid">
                             </div>
-                            <img alt="image" src="{{ $product->imageUrl() }}" class="img-fluid">
-                        </div>
-                        <div class="tab-pane big-image fade" id="gallery-img3">
-                            <div class="auction-gallery-timer d-flex align-items-center justify-content-center">
-                                <h3 id="countdown-timer-3">&nbsp;</h3>
-                            </div>
-                            <img alt="image" src="{{ $product->imageUrl() }}" class="img-fluid">
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-5">
