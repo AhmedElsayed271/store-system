@@ -22,4 +22,12 @@ class PageController extends Controller
     {
         return view('frontend.work-page');
     }
+    public function blog()
+    {
+        return view('frontend.blog');
+    }
+    public function blogDetails()
+    {
+        return view('frontend.blog-details');
+    }
 }

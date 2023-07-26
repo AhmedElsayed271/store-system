@@ -20,8 +20,8 @@
     <!-- ========== inner-page-banner end ============= -->
 
     <div class="contact-section pt-120 pb-120">
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-top" >
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-bottom" >
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg-top" >
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg-bottom" >
         <div class="container">
             <div class="row pb-120 mb-70 g-4 d-flex justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-8">

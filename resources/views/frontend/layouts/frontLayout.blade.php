@@ -145,9 +145,20 @@
                     <a href="#" class="drop-down">Pages</a><i class='bx bx-plus dropdown-icon'></i>
                     <ul class="submenu">
                         <li><a href="{{ route('faq.page') }}">Faq</a></li>
-                        <li><a href="{{ route('myAccount') }}">Dashboard</a></li>
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Sign Up</a></li>
+                        @if(Auth::check() && Auth::user()->type == "admin")
+                            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        @endif
+                        @guest
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Sign Up</a></li>
+                        @endguest
+                    </ul>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="#">News</a><i class='bx bx-plus dropdown-icon'></i>
+                    <ul class="submenu">
+                        <li><a href="{{ route('blog') }}">Blog</a></li>
+                        <li><a href="{{ route('blog.details') }}">Blog Details</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ route('contact.us') }}">Contact</a></li>
@@ -270,7 +281,7 @@
                                 <li><a href="{{ route('work.page') }}">How It Works</a></li>
                                 <li><a href="{{ route('myAccount') }}">My Account</a></li>
                                 <li><a href="{{ route('about.us') }}">About Company</a></li>
-                                <li><a href="blog.html">Our News Feed</a></li>
+                                <li><a href="{{ route('blog') }}">Our News Feed</a></li>
                             </ul>
                         </div>
                     </div>
@@ -278,11 +289,11 @@
                         <div class="footer-item">
                             <h5>Help & FAQs</h5>
                             <ul class="footer-list">
-                                <li><a href="product.html">Help Center</a></li>
-                                <li><a href="faq.html">Customer FAQs</a></li>
-                                <li><a href="login.html">Terms and Conditions</a></li>
-                                <li><a href="about.html">Security Information</a></li>
-                                <li><a href="blog.html">Merchant Add Policy</a></li>
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="{{ route('faq.page') }}">Customer FAQs</a></li>
+                                <li><a href="{{ route('login') }}">Terms and Conditions</a></li>
+                                <li><a href="{{ route('about.us') }}">Security Information</a></li>
+                                <li><a href="{{ route('blog') }}">Merchant Add Policy</a></li>
                             </ul>
                         </div>
                     </div>
@@ -292,7 +303,7 @@
                             <ul class="recent-feed-list">
                                 <li class="single-feed">
                                     <div class="feed-img">
-                                        <a href="blog-details.html"><img alt="image" src="{{ asset('assets/frontend/images/blog/recent-feed1.png') }}"
+                                        <a href="{{ route('blog.details') }}"><img alt="image" src="{{ asset('assets/frontend/images/blog/recent-feed1.png') }}"
                                                 ></a>
                                     </div>
                                     <div class="feed-content">
@@ -303,22 +314,22 @@
                                 </li>
                                 <li class="single-feed">
                                     <div class="feed-img">
-                                        <a href="blog-details.html"><img alt="image" src="{{ asset('assets/frontend/images/blog/recent-feed2.png') }}"
+                                        <a href="{{ route('blog.details') }}"><img alt="image" src="{{ asset('assets/frontend/images/blog/recent-feed2.png') }}"
                                                 ></a>
                                     </div>
                                     <div class="feed-content">
                                         <span>February 21, 2022</span>
-                                        <h6><a href="blog-details.html">Seminar for Children to Learn About.</a></h6>
+                                        <h6><a href="{{ route('blog.details') }}">Seminar for Children to Learn About.</a></h6>
                                     </div>
                                 </li>
                                 <li class="single-feed">
                                     <div class="feed-img">
-                                        <a href="blog-details.html"><img alt="image" src="{{ asset('assets/frontend/images/blog/recent-feed3.png') }}"
+                                        <a href="{{ route('blog.details') }}"><img alt="image" src="{{ asset('assets/frontend/images/blog/recent-feed3.png') }}"
                                                 ></a>
                                     </div>
                                     <div class="feed-content">
                                         <span>March 22, 2022</span>
-                                        <h6><a href="blog-details.html">Education and teacher for all African
+                                        <h6><a href="{{ route('blog.details') }}">Education and teacher for all African
                                                 Children.</a></h6>
                                     </div>
                                 </li>

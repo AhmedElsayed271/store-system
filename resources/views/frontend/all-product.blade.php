@@ -8,7 +8,7 @@
                 <h2 class="inner-banner-title wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">Live Auction</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                       <li class="breadcrumb-item active" aria-current="page">Live Auction</li>
                     </ol>
                   </nav>
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             <div class="auction-content">
-                                <h4><a href="auction-details.html">{{ $product->name }}</a></h4>
+                                <h4><a href="{{ route('productDetails',$product->id) }}">{{ $product->name }}</a></h4>
                                 <p>Bidding Price : <span>{{ $product->price }}</span></p>
                                 <div class="auction-card-bttm">
                                     <form action="{{ Route('cart.store') }}" method="post">@csrf

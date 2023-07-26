@@ -612,7 +612,7 @@
                                         Communications and Mr. Will Elkadi for all the efforts that
                                         assisted me nicely manners.</p>
                                     <div class="testi-designation">
-                                        <h5><a href="blog.html">Johan Martin</a></h5>
+                                        <h5><a href="{{ route('blog') }}">Johan Martin</a></h5>
                                         <p>CEO</p>
                                     </div>
                                 </div>
@@ -733,12 +733,12 @@
                             <img alt="image" src="{{ asset('assets/frontend/images/blog/blogstyle11.png') }}">
                         </div>
                         <div class="blog-content">
-                            <h5><a href="blog-details.html">David Droga Still Has Faith in Online Advertising Creative
+                            <h5><a href="{{ route('blog.details') }}">David Droga Still Has Faith in Online Advertising Creative
                                     Digital Reviews</a></h5>
                             <div class="blog-meta">
                                 <div class="author">
                                     <img alt="image" src="{{ asset('assets/frontend/images/blog/author1.png') }}">
-                                    <a href="blog.html" class="author-name">Johan Martin</a>
+                                    <a href="{{ route('blog') }}" class="author-name">Johan Martin</a>
                                 </div>
                                 <div class="comment">
                                     <img alt="image" src="{{ asset('assets/frontend/images/icons/comment-icon.svg') }}">
@@ -756,7 +756,7 @@
                             <img alt="image" src="{{ asset('assets/frontend/images/blog/blogstyle12.png') }}">
                         </div>
                         <div class="blog-content">
-                            <h5><a href="blog-details.html">Take our friend Johnny No-Job, for example. He’s a
+                            <h5><a href="{{ route('blog.details') }}">Take our friend Johnny No-Job, for example. He’s a
                                     specialist in influencer.</a></h5>
                             <div class="blog-meta">
                                 <div class="author">

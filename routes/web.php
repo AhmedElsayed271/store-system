@@ -37,6 +37,8 @@ Route::get('/about-us', [PageController::class, 'aboutUs'])->name('about.us');
 Route::get('/contact-us', [PageController::class, 'contactUs'])->name('contact.us');
 Route::get('/faq-page', [PageController::class, 'faqPage'])->name('faq.page');
 Route::get('/work-page', [PageController::class, 'workPage'])->name('work.page');
+Route::get('/blog', [PageController::class, 'blog'])->name('blog');
+Route::get('/blog-details', [PageController::class, 'blogDetails'])->name('blog.details');
 
 
 Route::get('/mab', [MapController::class, 'show']);
