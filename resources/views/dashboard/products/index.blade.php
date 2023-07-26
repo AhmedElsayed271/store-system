@@ -57,8 +57,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>name</th>
-                                            <th>Category</th>
-                                            <th>store</th>
+                                            <th>category</th>
                                             <th>status</th>
                                             <th>created_at</th>
                                             <th colspan="2">Operatoin</th>
@@ -69,7 +68,7 @@
                                             <tr>
                                                 <td>{{ $product->id }}</td>
                                                 <td>{{ $product->name }}</td>
-                                                <td>{{ $product->category->name }}</td>
+                                                <td>{{ $product->category->name ?? "" }}</td>
                                                 <td>{{ $product->status }}</td>
                                                 <td>{{ $product->created_at }}</td>
                                                 <td>
