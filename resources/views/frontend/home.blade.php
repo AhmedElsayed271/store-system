@@ -444,7 +444,7 @@
                             </div>
                         </div>
                         <div class="auction-content">
-                            <h4><a href="auction-details.html">{{ $product->name }}</a></h4>
+                            <h4><a href="{{ route('productDetails',$product->id) }}">{{ $product->name }}</a></h4>
                             <p>Bidding Price : <span><span>{{ $product->price }}</span></span></p>
                             <div class="auction-card-bttm">
                                 <form action="{{ Route('cart.store') }}" method="post">@csrf
