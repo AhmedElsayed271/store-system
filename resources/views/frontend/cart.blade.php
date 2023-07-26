@@ -78,7 +78,9 @@
 
                                         <div class="d-flex justify-content-between mb-5 px-3">
                                             <h5 class="text-uppercase">Total price</h5>
-                                            <h5>{{ $total }}$</h5>
+                                            <h5>{{ $total }}₪
+                                            
+                                            </h5>
                                         </div>
 
                                         <button type="button" class="btn btn-dark btn-block btn-lg mx-3"

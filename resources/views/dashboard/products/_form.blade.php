@@ -41,7 +41,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <label for="exampleInputFile">Photo</label>
+        <label for="exampleInputFile">Main Photo</label>
         <div class="input-group">
             <div class="custom-file">
                 <input type="file" name="photo" class="custom-file-input" id="exampleInputFile" accept="image/*">
@@ -52,6 +52,21 @@
             </div>
         </div>
         @error('photo')
+            <div class="text-danger mt-2"> {{ $message }} </div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <label for="exampleInputFile">Photos</label>
+        <div class="input-group">
+            <div class="custom-file">
+                <input type="file" name="photos[]" multiple class="custom-file-input" id="exampleInputFile" accept="image/*">
+                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+            </div>
+            <div class="input-group-append">
+                <span class="input-group-text">Upload</span>
+            </div>
+        </div>
+        @error('photos')
             <div class="text-danger mt-2"> {{ $message }} </div>
         @enderror
     </div>

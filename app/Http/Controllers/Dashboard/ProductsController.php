@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,7 +20,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::with('category')->get();
-        
+
         return view('dashboard.products.index', compact("products"));
     }
 
@@ -37,17 +38,23 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => "required|min:3",
             'price' => "required|numeric",
             'status' => 'required|in:active,inactive,archived',
-            'photo' => 'required|mimes:jpeg,png,jpg,gif'
+            'photo' => 'required|mimes:jpeg,png,jpg,gif',
+            'photos' => 'required|array|max:3',
+            'photos.*' => 'mimes:jpeg,png,jpg,gif',
         ]);
+
+
+
 
         $path = $request->file('photo')->store('products', 'upload');
 
 
-        Product::create([
+        $product = Product::create([
             'name'          => $request->name,
             'slug'          => Str::slug($request->name),
             'price'         => $request->price,
@@ -56,6 +63,20 @@ class ProductsController extends Controller
             'category_id'        => $request->category_id,
             'photo'         => $path
         ]);
+
+        $images = $request->photos;
+
+        foreach ($images as $image) {
+
+            $images = [];
+
+            $path = $image->store('products', 'upload');
+
+            Image::create([
+                'photo'      => $path,
+                'product_id' => $product->id
+            ]);
+        }
 
         return redirect()->route('products.index')->with(['success' => "Added Successfuly"]);
     }
@@ -74,7 +95,7 @@ class ProductsController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
-        
+
         return view('dashboard.products.edit', compact('product', 'categories'));
     }
 
@@ -82,14 +103,17 @@ class ProductsController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Product $product)
-    {       
+    {
 
         $request->validate([
             'name' => "required|min:3",
             'price' => "required|numeric",
             'status' => 'required|in:active,inactive,archived',
-            'photo' => 'sometimes|required|mimes:jpeg,png,jpg,gif'
+            'photo' => 'sometimes|required|mimes:jpeg,png,jpg,gif',
+            'photos' => 'sometimes|required|array|max:3',
+            'photos.*' => 'sometimes|mimes:jpeg,png,jpg,gif',
         ]);
+
         $oldImage = $product->photo;
         if ($request->hasFile('photo')) {
             $path = $request->file('photo')->store('products', 'upload');
@@ -104,7 +128,7 @@ class ProductsController extends Controller
             'status' => $request->status,
             'photo' => $path,
             'category_id' => $request->category_id,
-            'compare_price' =>$request->compare_price
+            'compare_price' => $request->compare_price
         ]);
 
         if ($path != $oldImage) {
@@ -112,8 +136,35 @@ class ProductsController extends Controller
             Storage::disk('upload')->delete($oldImage);
         }
 
-        return redirect()->route('products.index')->with(['success' => "Updated Successfuly"]);
+        if ($request->has('photos')) {
 
+            $images = $request->photos;
+
+            foreach ($images as $image) {
+
+                $oldImage = $product->photos;
+
+                $path = $image->store('products', 'upload');
+
+                $product->photos()->create([
+                    'photo' => $path
+                ]);
+            }
+        }
+
+        if (isset($oldImage)) {
+
+            foreach ($oldImage as $image) {
+
+                $photo = $image->photo;
+                
+                $image->delete();
+
+                Storage::disk('upload')->delete($photo);
+            }
+        }
+
+        return redirect()->route('products.index')->with(['success' => "Updated Successfuly"]);
     }
 
     /**
@@ -123,13 +174,19 @@ class ProductsController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        $oldImage = $product->photo;
+        $oldMainImage = $product->photo;
+
+        $oldImages = $product->photos;
 
         $product->delete();
 
-        Storage::disk('upload')->delete($oldImage);
+        Storage::disk('upload')->delete($oldMainImage);
 
-        
+        foreach($oldImages as $image) {
+            Storage::disk('upload')->delete($image->photo);
+        }
+
+
         return redirect()->route('products.index')->with(['success' => "Deleted Successfuly"]);
     }
 }
