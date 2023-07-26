@@ -18,7 +18,8 @@ class ProductController extends Controller
     public function productDetails($id) 
     {   
 
-        $product = Product::findOrFail($id);
+        $product = Product::with('photos')->findOrFail($id);
+
 
         return view('frontend.product-details', compact('product'));
     }

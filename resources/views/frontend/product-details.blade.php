@@ -22,32 +22,23 @@
     <!-- ========== auction-details start ============= -->
 
     <div class="auction-details-section pt-120">
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-top">
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-bottom">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg-top">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg-bottom">
         <div class="container">
             <div class="row g-4 mb-50">
                 <div
                     class="col-xl-6 col-lg-7 d-flex flex-row align-items-start justify-content-lg-start justify-content-center flex-md-nowrap flex-wrap gap-4">
                     <ul class="nav small-image-list d-flex flex-md-column flex-row justify-content-center gap-4  wow fadeInDown"
                         data-wow-duration="1.5s" data-wow-delay=".4s">
-                        <li class="nav-item">
-                            <div id="details-img1" data-bs-toggle="pill" data-bs-target="#gallery-img1"
-                                aria-controls="gallery-img1">
-                                <img alt="image" src="{{ $product->imageUrl() }}" class="img-fluid">
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div id="details-img2" data-bs-toggle="pill" data-bs-target="#gallery-img2"
-                                aria-controls="gallery-img2">
-                                <img alt="image" src="{{ $product->imageUrl() }}" class="img-fluid">
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div id="details-img3" data-bs-toggle="pill" data-bs-target="#gallery-img3"
-                                aria-controls="gallery-img3">
-                                <img alt="image" src="{{ $product->imageUrl() }}" class="img-fluid">
-                            </div>
-                        </li>
+                        @foreach ($product->photos as $photo)
+                            <li class="nav-item">
+                                <div id="details-img1" data-bs-toggle="pill" data-bs-target="#gallery-img1"
+                                    aria-controls="gallery-img1">
+                                    <img alt="image" src="{{ asset('assets/dashboard/uploads') . '/'. $photo->photo }}" class="img-fluid">
+                                </div>
+                            </li> 
+                        @endforeach
+  
                     </ul>
                     <div class="tab-content mb-4 d-flex justify-content-lg-start justify-content-center  wow fadeInUp"
                         data-wow-duration="1.5s" data-wow-delay=".4s">
