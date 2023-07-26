@@ -136,27 +136,18 @@
                     <a href="{{ route('about.us') }}">About Us</a>
                 </li>
                 <li>
-                    <a href="how-works.html">How It Works</a>
+                    <a href="{{ route('work.page') }}">How It Works</a>
                 </li>
                 <li>
                     <a href="{{ route('allProduct') }}">Browse Product</a>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#">News</a><i class='bx bx-plus dropdown-icon'></i>
-                    <ul class="submenu">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children">
                     <a href="#" class="drop-down">Pages</a><i class='bx bx-plus dropdown-icon'></i>
                     <ul class="submenu">
-                        <li><a href="auction-details.html">Auction Details</a></li>
-                        <li><a href="faq.html">Faq</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="{{ route('faq.page') }}">Faq</a></li>
+                        <li><a href="{{ route('myAccount') }}">Dashboard</a></li>
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Sign Up</a></li>
-                        <li><a href="404.html">404</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ route('contact.us') }}">Contact</a></li>
@@ -260,7 +251,7 @@
                 <div class="row gy-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
-                            <a href="index.html"><img alt="image" src="{{ asset('assets/frontend/images/bg/footer-logo.png') }}" ></a>
+                            <a href="{{ route('home') }}"><img alt="image" src="{{ asset('assets/frontend/images/bg/footer-logo.png') }}" ></a>
                             <p>Lorem ipsum dolor sit amet consecte tur adipisicing elit, sed do eiusmod tempor
                                 incididunt ut labore.</p>
                             <form>
@@ -275,10 +266,10 @@
                         <div class="footer-item">
                             <h5>Navigation</h5>
                             <ul class="footer-list">
-                                <li><a href="live-auction.html">All Product</a></li>
-                                <li><a href="how-works.html">How It Works</a></li>
-                                <li><a href="login.html">My Account</a></li>
-                                <li><a href="about.html">About Company</a></li>
+                                <li><a href="{{ route('allProduct') }}">All Product</a></li>
+                                <li><a href="{{ route('work.page') }}">How It Works</a></li>
+                                <li><a href="{{ route('myAccount') }}">My Account</a></li>
+                                <li><a href="{{ route('about.us') }}">About Company</a></li>
                                 <li><a href="blog.html">Our News Feed</a></li>
                             </ul>
                         </div>

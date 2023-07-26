@@ -436,7 +436,7 @@
                             </div>
                             <div class="author-area">
                                 <div class="author-emo">
-                                    <img alt="image" src="{{ asset('assets/frontend/images/bg/dotted1.png') }}">
+                                    <img alt="image" src="{{ asset('assets/frontend/images/icons/smile-emo.svg') }}">
                                 </div>
                                 <div class="author-name">
                                     <span>by @robatfox</span>
@@ -483,7 +483,7 @@
     <!-- =============== upcoming-action-section end =============== -->
 
     <div class="upcoming-seciton pb-120">
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg">
+        <img alt="image" src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
@@ -523,7 +523,7 @@
                                     </div>
                                     <div class="author-area2">
                                         <div class="author-emo">
-                                            <img alt="image" src="assets/images/bg/upcoming-author1.png">
+                                            <img alt="image" src="{{ asset('assets/frontend/images/bg/upcoming-author1.png') }}">
                                         </div>
                                         <div class="author-name">
                                             <span>by @robatfox</span>
@@ -621,7 +621,7 @@
                         <div class="swiper-slide">
                             <div class="testimonial-single hover-border1 wow fadeInDown" data-wow-duration="1.5s"
                                 data-wow-delay=".4s">
-                                <img alt="image" src="assets/images/icons/quote-green.svg" class="quote-icon">
+                                <img alt="image" src="{{ asset('assets/frontend/images/icons/quote-green.svg') }}" class="quote-icon">
                                 <div class="testi-img">
                                     <img alt="image" src="{{ asset('assets/frontend/images/bg/testi2.png') }}">
                                 </div>

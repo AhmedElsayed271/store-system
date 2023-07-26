@@ -18,7 +18,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::get();
+        $products = Product::with('category')->get();
+        // return $products[1]->category->name;
         return view('dashboard.products.index', compact("products"));
     }
 

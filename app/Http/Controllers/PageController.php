@@ -14,4 +14,12 @@ class PageController extends Controller
     {
         return view('frontend.contact-us');
     }
+    public function faqPage()
+    {
+        return view('frontend.faq');
+    }
+    public function workPage()
+    {
+        return view('frontend.work-page');
+    }
 }

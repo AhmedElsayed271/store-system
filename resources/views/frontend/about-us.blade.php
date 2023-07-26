@@ -20,7 +20,7 @@
         <!-- ========== inner-page-banner end ============= -->
     
         <div class="about-section pt-120 pb-120">
-            <img src="assets/images/bg/section-bg.png" class="img-fluid section-bg-top" alt="section-bg">
+            <img src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="img-fluid section-bg-top" alt="section-bg">
             <div class="container">
                 <div class="row d-flex justify-content-center g-4">
                     <div class="col-lg-6 col-md-10">
@@ -40,13 +40,13 @@
                     <div class="col-lg-6 col-md-10 text-start">
                         <div class="about-img-area">
                             <div class="total-tag">
-                                <img src="assets/images/bg/total-tag.png" alt="">
+                                <img src="{{ asset('assets/frontend/images/bg/total-tag.png') }}" alt="">
                                 <h6>Total Raised</h6>
                                 <h5>$45,390.00</h5>
                             </div>
-                            <img src="assets/images/bg/about-img.png" class="img-fluid about-img wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s" alt="about-img">
-                            <img src="assets/images/bg/about-linear.png" class="img-fluid about-linear" alt="">
-                            <img src="assets/images/bg/about-vector.png" class="img-fluid about-vector" alt="">
+                            <img src="{{ asset('assets/frontend/images/bg/about-img.png') }}" class="img-fluid about-img wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s" alt="about-img">
+                            <img src="{{ asset('assets/frontend/images/bg/about-linear.png') }}" class="img-fluid about-linear" alt="">
+                            <img src="{{ asset('assets/frontend/images/bg/about-vector.png') }}" class="img-fluid about-vector" alt="">
                         </div>
                     </div>
                    
@@ -57,9 +57,9 @@
           <!-- ===============  Choose-us start=============== -->
     
           <div class="choose-us-section pb-120" id="choose-us">
-            <img src="assets/images/bg/section-bg.png" class="section-bg-bottom" alt=""> 
+            <img src="{{ asset('assets/frontend/images/bg/section-bg.png') }}" class="section-bg-bottom" alt=""> 
             <div class="container position-relative">
-                <img src="assets/images/bg/angle-vector.png" class="img-fluid angle-vector" alt="">
+                <img src="{{ asset('assets/frontend/images/bg/angle-vector.png') }}" class="img-fluid angle-vector" alt="">
                 <div class="row d-flex justify-content-center">
                     <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
                         <div class="section-title1">
@@ -202,11 +202,11 @@
          <!-- =============== testimonial-section start =============== -->
     
          <div class="testimonial-section pt-80 pb-80">
-            <img src="assets/images/bg/client-right.png" class="client-right-vector" alt="">
-            <img src="assets/images/bg/client-left.png" class="client-left-vector" alt="">
-            <img src="assets/images/bg/clent-circle1.png" class="client-circle1" alt="">
-            <img src="assets/images/bg/clent-circle2.png" class="client-circle2" alt="">
-            <img src="assets/images/bg/clent-circle3.png" class="client-circle3" alt="">
+            <img src="{{ asset('assets/frontend/bg/client-right.png') }}" class="client-right-vector" alt="">
+            <img src="{{ asset('assets/frontend/bg/client-left.png') }}" class="client-left-vector" alt="">
+            <img src="{{ asset('assets/frontend/bg/clent-circle1.png') }}" class="client-circle1" alt="">
+            <img src="{{ asset('assets/frontend/bg/clent-circle2.png') }}" class="client-circle1" alt="">
+            <img src="{{ asset('assets/frontend/bg/clent-circle3.png') }}" class="client-circle1" alt="">
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
@@ -222,9 +222,9 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="testimonial-single style2 hover-border1 wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="0.3s">
-                                    <img src="assets/images/icons/quote-green.svg" class="quote-icon" alt="quote-icon">
+                                    <img src="{{ asset('assets/frontend/images/icons/quote-green.svg') }}" class="quote-icon" alt="quote-icon">
                                     <div class="testi-img">
-                                        <img src="assets/images/bg/testi1.png" alt="">
+                                        <img src="{{ asset('assets/frontend/images/bg/testi1.png') }}" alt="">
                                     </div>
                                     <div class="testi-content">
                                         <div class="testi-designation">
@@ -239,9 +239,9 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="testimonial-single style2 hover-border1 wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="0.6s">
-                                    <img src="assets/images/icons/quote-green.svg" class="quote-icon" alt="quote-icon">
+                                    <img src="{{ asset('assets/frontend/images/icons/quote-green.svg') }}" class="quote-icon" alt="quote-icon">
                                     <div class="testi-img">
-                                        <img src="assets/images/bg/testi2.png" alt="">
+                                        <img src="{{ asset('assets/frontend/images/bg/testi2.png') }}" alt="">
                                     </div>
                                     <div class="testi-content">
                                         <div class="testi-designation">
@@ -254,9 +254,10 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="testimonial-single style2 hover-border1 wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="0.9s">
-                                    <img src="assets/images/icons/quote-green.svg" class="quote-icon" alt="quote-icon">
+                                    <img src="{{ asset('assets/frontend/images/icons/quote-green.svg') }}" class="quote-icon" alt="quote-icon">
                                     <div class="testi-img">
-                                        <img src="assets/images/bg/testi3.png" alt="">
+                                        <img src="{{ asset('assets/frontend/images/bg/testi3.png') }}" alt="">
+                                        <img src="{{ asset('assets/frontend/images/bg/testi3.png') }}" alt="">
                                     </div>
                                     <div class="testi-content">
                                         <div class="testi-designation">

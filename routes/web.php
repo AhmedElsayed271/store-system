@@ -35,11 +35,14 @@ use App\Http\Controllers\Front\ProductController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [PageController::class, 'aboutUs'])->name('about.us');
 Route::get('/contact-us', [PageController::class, 'contactUs'])->name('contact.us');
+Route::get('/faq-page', [PageController::class, 'faqPage'])->name('faq.page');
+Route::get('/work-page', [PageController::class, 'workPage'])->name('work.page');
 
 
 Route::get('/mab', [MapController::class, 'show']);
 Route::get('/test', function () {
     
+    return view('frontend.404');
     event(new pusherTest());
     
     return "Done!";
